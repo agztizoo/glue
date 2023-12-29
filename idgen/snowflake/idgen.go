@@ -5,7 +5,7 @@ import (
 
 	"github.com/bwmarrin/snowflake"
 
-	"github.com/glue/idgen"
+	"github.com/agztizoo/glue/idgen"
 )
 
 // New 创建雪花 ID 生成器.

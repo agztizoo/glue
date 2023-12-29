@@ -6,7 +6,7 @@ import (
 	"gorm.io/gorm"
 	"gorm.io/plugin/dbresolver"
 
-	"github.com/glue/transaction"
+	"github.com/agztizoo/glue/transaction"
 )
 
 // Provider 定义 *gorm.DB 提供者.

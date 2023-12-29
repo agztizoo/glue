@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/glue/env"
+	"github.com/agztizoo/glue/env"
 )
 
 var (

@@ -5,8 +5,8 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/glue/idgen"
-	"github.com/glue/transaction"
+	"github.com/agztizoo/glue/idgen"
+	"github.com/agztizoo/glue/transaction"
 )
 
 // Publisher 定义“领域事件”发布器.

@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/glue/db"
-	"github.com/glue/env"
-	"github.com/glue/transaction"
+	"github.com/agztizoo/glue/db"
+	"github.com/agztizoo/glue/env"
+	"github.com/agztizoo/glue/transaction"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
