@@ -1,0 +1,12 @@
+*.swp
+.idea
+.DS_Store
+
+# bazel
+WORKSPACE
+BUILD.bazel
+bazel-*
+deps.bzl
+
+#
+Makefile
