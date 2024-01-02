@@ -135,7 +135,7 @@ func (p *TagProcessor) loopFields(db *gorm.DB, handler TagHandler) {
 		switch db.Statement.ReflectValue.Kind() {
 		case reflect.Slice, reflect.Array:
 			for i := 0; i < db.Statement.ReflectValue.Len(); i++ {
-				fieldValue, isZero := field.ValueOf(db.Statement.ReflectValue.Index(i))
+				fieldValue, isZero := field.ValueOf(db.Statement.Context, db.Statement.ReflectValue.Index(i))
 				fieldValue, ok, err := handler(db.Statement.Context, tagValue, fieldValue, isZero)
 				if err != nil {
 					db.AddError(err)
@@ -144,13 +144,13 @@ func (p *TagProcessor) loopFields(db *gorm.DB, handler TagHandler) {
 				if !ok {
 					continue
 				}
-				if err := field.Set(db.Statement.ReflectValue.Index(i), fieldValue); err != nil {
+				if err := field.Set(db.Statement.Context, db.Statement.ReflectValue.Index(i), fieldValue); err != nil {
 					db.AddError(err)
 					return
 				}
 			}
 		case reflect.Struct:
-			fieldValue, isZero := field.ValueOf(db.Statement.ReflectValue)
+			fieldValue, isZero := field.ValueOf(db.Statement.Context, db.Statement.ReflectValue)
 			fieldValue, ok, err := handler(db.Statement.Context, tagValue, fieldValue, isZero)
 			if err != nil {
 				db.AddError(err)
@@ -159,7 +159,7 @@ func (p *TagProcessor) loopFields(db *gorm.DB, handler TagHandler) {
 			if !ok {
 				continue
 			}
-			if err := field.Set(db.Statement.ReflectValue, fieldValue); err != nil {
+			if err := field.Set(db.Statement.Context, db.Statement.ReflectValue, fieldValue); err != nil {
 				db.AddError(err)
 				return
 			}
